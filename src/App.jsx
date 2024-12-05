@@ -5,7 +5,7 @@ import './App.css';
 import BurgerStack from './components/BurgerStack';
 import IngredientList from './components/IngredientList';
 
-export const availableIngredients = [
+  const availableIngredients = [
   { name: 'Kaiser Bun', color: 'saddlebrown' },
   { name: 'Sesame Bun', color: 'sandybrown' },
   { name: 'Gluten Free Bun', color: 'peru' },
@@ -24,13 +24,17 @@ export const availableIngredients = [
 
 const App = () => {
   const [stack, setStack] = useState([])
-  
+  const addToBurger = (newIngredient) => {
+    setStack([...stack, newIngredient])
+  }
+
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList />
-        <BurgerStack />
+        {}
+        <IngredientList availableIngredients={availableIngredients}  />
+        <BurgerStack addToBurger={addToBurger} stack={stack}/>
       {/* List & Stack components */}
       </section>
     </main>
