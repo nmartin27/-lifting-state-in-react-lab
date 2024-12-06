@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 
-const IngredientList = ({ availableIngredients }) => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    addToBurger(newIngredient);
-    setNewIngredient("");
-  };
-  const [newIngredient, setNewIngredient] = useState("");
-  const handleChange = (event) => {
-    setNewIngredient(event.target.value);
-  };
+const IngredientList = ({ availableIngredients, addToBurger }) => {
+  //   const handleSubmit = (event) => {
+  //     // event.preventDefault();
+  //     addToBurger(newIngredient);
+  //     setNewIngredient("");
+  //   };
+  //   const [newIngredient, setNewIngredient] = useState("");
+  //   const handleChange = (newIngredient) => {
+  //     setNewIngredient(newIngredient);
+  //   };
 
   return (
     <div>
@@ -20,20 +20,14 @@ const IngredientList = ({ availableIngredients }) => {
         {availableIngredients.map((availableIngredient, index) => {
           return (
             <>
-              <div style={availableIngredient}>
-                <li key={index}>
-                  {availableIngredient.name}
-                  <button
-                    id="addToBurger"
-                    type="submit"
-                    name="addToBurger"
-                    value={newIngredient}
-                    onChange={handleChange}
-                  >
-                    +
-                  </button>
-                </li>
-              </div>
+              {/* <div> */}
+              <li key={index} style={{ color: availableIngredient.color }}>
+                {availableIngredient.name}
+                <button onClick={() => addToBurger(availableIngredient)}>
+                  +
+                </button>
+              </li>
+              {/* </div> */}
             </>
           );
         })}
