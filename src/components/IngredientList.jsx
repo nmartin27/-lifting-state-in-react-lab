@@ -1,6 +1,5 @@
 // src/components/IngredientList.jsx
 
-import { useState } from "react";
 
 const IngredientList = ({ availableIngredients, addToBurger }) => {
   //   const handleSubmit = (event) => {
@@ -21,7 +20,7 @@ const IngredientList = ({ availableIngredients, addToBurger }) => {
           return (
             <>
               {/* <div> */}
-              <li key={index} style={{ color: availableIngredient.color }}>
+              <li key={index} style={{ backgroundColor: availableIngredient.color }}>
                 {availableIngredient.name}
                 <button onClick={() => addToBurger(availableIngredient)}>
                   +
